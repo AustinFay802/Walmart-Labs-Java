@@ -40,6 +40,11 @@ if (( $JAVA_VERSION > 8 )); then
   JDK_SPECIFIC_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED"
 fi
 
+if (( $JAVA_VERSION >= 21 )); then
+  echo "Applying JDK 21+ specific options..."
+  JDK_SPECIFIC_OPTS="${JDK_SPECIFIC_OPTS} --add-opens java.base/java.nio=ALL-UNNAMED"
+fi
+
 if [[ -z "${EXTRA_CLASSPATH}" ]]; then
   EXTRA_CLASSPATH=""
 fi
