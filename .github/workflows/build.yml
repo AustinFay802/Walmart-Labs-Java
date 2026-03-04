@@ -38,12 +38,12 @@ jobs:
 
     strategy:
       matrix:
-        profile: [ 'jdk17', 'jdk17-aarch64' ]
+        profile: [ 'default', 'aarch64' ]
         include:
-          - jdk_version: '17'
-          - profile: 'jdk17'
+          - jdk_version: '21'
+          - profile: 'default'
             runs_on: ubuntu-latest
-          - profile: 'jdk17-aarch64'
+          - profile: 'aarch64'
             runs_on: [ linux, ARM64 ]
       fail-fast: false
 
@@ -74,4 +74,9 @@ jobs:
       - name: Build and test with Maven
         env:
           SKIP_DOCKER_TESTS: "true"
-        run: ./mvnw -s .github/settings.xml -B clean install -Pgha -Pdocker -Pit -P${{ matrix.profile }}
+        run: |
+          if [ "${{ matrix.profile }}" = "aarch64" ]; then
+            ./mvnw -s .github/settings.xml -B clean install -Pgha -Pdocker -Pit
+          else
+            ./mvnw -s .github/settings.xml -B clean install -Pgha -Pdocker -Pit
+          fi

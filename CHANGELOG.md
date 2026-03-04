@@ -1,5 +1,28 @@
 # Change Log
 
+## [Unreleased]
+
+### Breaking
+
+- project: migrate default Java version from 17 to 21. Java 21 is now the
+minimum required version for building and running Concord. A `jdk17` Maven
+profile is available for temporary backward compatibility. The `jdk21` and
+`jdk21-aarch64` profiles have been removed since Java 21 is now the default.
+Users must update their JDK installations to Java 21 or later.
+Docker images now use Java 21 by default. The agent-operator base image
+has been updated from `distroless/java17` to `distroless/java21`.
+CI/CD pipelines have been updated to build and test with Java 21.
+
+### Migration Guide
+
+To migrate from Java 17 to Java 21:
+1. Install JDK 21 (recommended: [Eclipse Temurin](https://adoptium.net/))
+2. Update `JAVA_HOME` to point to JDK 21
+3. If using Maven profiles, remove `-Pjdk21` or `-Pjdk21-aarch64` from build commands (no longer needed)
+4. To temporarily continue using Java 17, use the `-Pjdk17` profile
+5. Update Docker images to use Java 21 base images
+6. Review any custom JVM options for Java 21 compatibility
+
 ## [2.25.0] - 2025-03-23
 
 ### Changed

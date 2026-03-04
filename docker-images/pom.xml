@@ -99,5 +99,9 @@
                 <image.platforms>linux/aarch64</image.platforms>
             </properties>
         </profile>
+        <!-- jdk17 profile: backward compatibility for users who need to stay on Java 17 temporarily -->
+        <profile>
+            <id>jdk17</id>
+        </profile>
     </profiles>
 </project>
