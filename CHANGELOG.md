@@ -1,5 +1,15 @@
 # Change Log
 
+## [Unreleased]
+
+### Changed
+
+- project: migrate default Java version from 17 to 21. The `jdk21`
+Maven profile has been renamed to `jdk17` for backward compatibility.
+Use `-Pjdk17` to build with Java 17 when needed. Docker build arguments
+and Maven enforcer plugin automatically use the updated default.
+Documentation updated to reflect Java 21 as the minimum requirement.
+
 ## [2.25.0] - 2025-03-23
 
 ### Changed
