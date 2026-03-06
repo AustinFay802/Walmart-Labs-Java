@@ -38,13 +38,15 @@ jobs:
 
     strategy:
       matrix:
-        profile: [ 'jdk21', 'jdk21-aarch64' ]
         include:
-          - jdk_version: '21'
-          - profile: 'jdk21'
+          - arch: 'amd64'
+            jdk_version: '21'
             runs_on: ubuntu-latest
-          - profile: 'jdk21-aarch64'
+            maven_profiles: '-Pgha -Pdocker -Pit'
+          - arch: 'aarch64'
+            jdk_version: '21'
             runs_on: [ linux, ARM64 ]
+            maven_profiles: '-Pgha -Pdocker -Pit -Pjdk21-aarch64'
       fail-fast: false
 
     runs-on: ${{ matrix.runs_on }}
@@ -74,4 +76,4 @@ jobs:
       - name: Build and test with Maven
         env:
           SKIP_DOCKER_TESTS: "true"
-        run: ./mvnw -s .github/settings.xml -B clean install -Pgha -Pdocker -Pit -P${{ matrix.profile }}
+        run: ./mvnw -s .github/settings.xml -B clean install ${{ matrix.maven_profiles }}
