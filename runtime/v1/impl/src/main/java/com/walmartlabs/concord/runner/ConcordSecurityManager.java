@@ -26,6 +26,7 @@ import com.walmartlabs.concord.common.PrivilegedAction;
 import java.io.FilePermission;
 import java.security.Permission;
 
+@SuppressWarnings("removal")
 public class ConcordSecurityManager extends SecurityManager {
 
     private static final String ALL_FILES_TOKEN = "<<ALL FILES>>"; // special java token
