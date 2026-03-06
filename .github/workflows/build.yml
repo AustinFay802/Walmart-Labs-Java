@@ -38,13 +38,13 @@ jobs:
 
     strategy:
       matrix:
-        profile: [ 'jdk17', 'jdk17-aarch64' ]
         include:
-          - jdk_version: '17'
-          - profile: 'jdk17'
+          - name: 'jdk21'
             runs_on: ubuntu-latest
-          - profile: 'jdk17-aarch64'
+            extra_profiles: ''
+          - name: 'jdk21-aarch64'
             runs_on: [ linux, ARM64 ]
+            extra_profiles: '-Pjdk21-aarch64'
       fail-fast: false
 
     runs-on: ${{ matrix.runs_on }}
@@ -65,7 +65,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          java-version: '${{ matrix.jdk_version }}'
+          java-version: '21'
           distribution: 'temurin'
 
       - name: Checkout
@@ -74,4 +74,4 @@ jobs:
       - name: Build and test with Maven
         env:
           SKIP_DOCKER_TESTS: "true"
-        run: ./mvnw -s .github/settings.xml -B clean install -Pgha -Pdocker -Pit -P${{ matrix.profile }}
+        run: ./mvnw -s .github/settings.xml -B clean install -Pgha -Pdocker -Pit ${{ matrix.extra_profiles }}
