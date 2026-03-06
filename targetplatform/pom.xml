@@ -40,7 +40,7 @@
         <aws.version>1.11.475</aws.version>
         <bouncycastle.version>1.80</bouncycastle.version>
         <bpm.version>1.0.3</bpm.version>
-        <bytebuddy.version>1.14.9</bytebuddy.version>
+        <bytebuddy.version>1.15.11</bytebuddy.version>
         <commons.beanutils.version>1.9.4</commons.beanutils.version>
         <commons.codec.version>1.17.1</commons.codec.version>
         <commons.collections.version>3.2.2</commons.collections.version>
@@ -87,7 +87,7 @@
         <json.schema.validator.version>1.5.4</json.schema.validator.version>
         <json.smart.version>2.5.2</json.smart.version>
         <jsr305.version>3.0.2</jsr305.version>
-        <junit.version>5.9.1</junit.version>
+        <junit.version>5.11.4</junit.version>
         <kafka.client.version>3.7.1</kafka.client.version>
         <kerby.version>2.0.1</kerby.version>
         <kubernetes.client.version>7.0.1</kubernetes.client.version>
@@ -103,7 +103,7 @@
         <maven.resolver.version>1.9.20</maven.resolver.version>
         <maven.resolver.version.concord>0.0.4</maven.resolver.version.concord>
         <metrics.version>4.2.25</metrics.version>
-        <mockito.version>4.9.0</mockito.version>
+        <mockito.version>5.14.2</mockito.version>
         <mustache.version>0.9.10</mustache.version>
         <nimbus.jwt.version>10.0.2</nimbus.jwt.version>
         <pac4j.version>4.5.8</pac4j.version>

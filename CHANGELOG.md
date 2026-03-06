@@ -1,5 +1,14 @@
 # Change Log
 
+## [Unreleased]
+
+### Breaking
+
+- project: drop support for JDK 17 as the default. Make JDK 21
+the new default version. Update Maven plugins (surefire, failsafe,
+assembly), dependencies (Mockito 5.x, ByteBuddy 1.15.x, JUnit 5.11.x),
+CI workflows, and Docker images to support JDK 21.
+
 ## [2.25.0] - 2025-03-23
 
 ### Changed
