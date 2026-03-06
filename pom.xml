@@ -70,13 +70,13 @@
         <scm.connection>scm:git:https://github.com/walmartlabs/concord.git</scm.connection>
 
         <docker.plugin.version>0.45.1</docker.plugin.version>
-        <jooq.version>3.14.0</jooq.version>
-        <junit.version>5.9.1</junit.version>
+        <jooq.version>3.18.7</jooq.version>
+        <junit.version>5.10.2</junit.version>
         <liquibase.version>4.29.2</liquibase.version>
         <node.version>20.12.2</node.version>
         <frontend.plugin.version>1.15.1</frontend.plugin.version>
 
-        <jdk.version>17</jdk.version>
+        <jdk.version>21</jdk.version>
         <failsafe.args>
             --add-opens java.base/java.util=ALL-UNNAMED
         </failsafe.args>
@@ -240,23 +240,23 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>3.0.0-M5</version>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.junit.jupiter</groupId>
-                            <artifactId>junit-jupiter-engine</artifactId>
-                            <version>${junit.version}</version>
-                        </dependency>
-                    </dependencies>
-                    <configuration>
-                        <includes>
-                            <include>**/IT*.java</include>
-                            <include>**/*IT.java</include>
-                            <include>**/*ITCase.java</include>
-                            <include>**/Test*.java</include>
-                        </includes>
-                        <argLine>${failsafe.args}</argLine>
-                    </configuration>
+                                        <version>3.2.5</version>
+                                        <dependencies>
+                                            <dependency>
+                                                <groupId>org.junit.jupiter</groupId>
+                                                <artifactId>junit-jupiter-engine</artifactId>
+                                                <version>${junit.version}</version>
+                                            </dependency>
+                                        </dependencies>
+                                        <configuration>
+                                            <includes>
+                                                <include>**/IT*.java</include>
+                                                <include>**/*IT.java</include>
+                                                <include>**/*ITCase.java</include>
+                                                <include>**/Test*.java</include>
+                                            </includes>
+                                            <argLine>${failsafe.args}</argLine>
+                                        </configuration>
                     <executions>
                         <execution>
                             <goals>
@@ -269,7 +269,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>3.0.0-M5</version>
+                    <version>3.2.5</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.junit.jupiter</groupId>
@@ -460,15 +460,9 @@
     <profiles>
         <profile>
             <id>jdk21</id>
-            <properties>
-                <jdk.version>21</jdk.version>
-            </properties>
         </profile>
         <profile>
             <id>jdk21-aarch64</id>
-            <properties>
-                <jdk.version>21</jdk.version>
-            </properties>
         </profile>
         <profile>
             <id>concord-release</id>
